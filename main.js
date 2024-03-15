@@ -2,10 +2,11 @@
 // include your assets here
 
 // get styles
-import "./assets/css/styles.css"
+import './assets/css/styles.css';
 
 // get scripts
-import './assets/js/scripts.js'
+// eslint-disable-next-line import/extensions
+import './assets/js/scripts.js';
 
 /*
 document.querySelector('#app').innerHTML = `

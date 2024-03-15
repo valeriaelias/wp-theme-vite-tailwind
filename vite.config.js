@@ -9,19 +9,22 @@
 // ln -s {path_to_vite}/src/assets {path_to_public_html}/assets
 // on production everything will work just fine
 
-//import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
-import liveReload from 'vite-plugin-live-reload'
-const { resolve } = require('path')
-const fs = require('fs')
+// import vue from '@vitejs/plugin-vue'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { defineConfig } from 'vite';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import liveReload from 'vite-plugin-live-reload';
 
+const { resolve } = require('path');
+// never used
+// const fs = require('fs');
 
 // https://vitejs.dev/config
 export default defineConfig({
 
   plugins: [
-    //vue(),
-    liveReload(__dirname+'/**/*.php')
+    // vue(),
+    liveReload(`${__dirname}/**/*.php`),
   ],
 
   // config
@@ -44,20 +47,20 @@ export default defineConfig({
     // our entry
     rollupOptions: {
       input: {
-        main: resolve( __dirname + '/main.js')
+        main: resolve(`${__dirname}/main.js`),
       },
-      
+
       /*
       output: {
           entryFileNames: `[name].js`,
           chunkFileNames: `[name].js`,
           assetFileNames: `[name].[ext]`
-      }*/
+      } */
     },
 
     // minifying switch
     minify: true,
-    write: true
+    write: true,
   },
 
   server: {
@@ -68,7 +71,7 @@ export default defineConfig({
     // we need a strict port to match on PHP side
     // change freely, but update in your functions.php to match the same port
     strictPort: true,
-    port: 3000,
+    port: 4000,
 
     // serve over http
     https: false,
@@ -79,26 +82,26 @@ export default defineConfig({
     // installation example on Windows 10:
     // > choco install mkcert (this will install mkcert)
     // > mkcert -install (global one time install)
+    // eslint-disable-next-line max-len
     // > mkcert localhost (in project folder files localhost-key.pem & localhost.pem will be created)
     // uncomment below to enable https
-    //https: {
+    // https: {
     //  key: fs.readFileSync('localhost-key.pem'),
     //  cert: fs.readFileSync('localhost.pem'),
-    //},
+    // },
 
     hmr: {
       host: 'localhost',
-      //port: 443
+      // port: 443
     },
-    
+
   },
 
   // required for in-browser template compilation
   // https://v3.vuejs.org/guide/installation.html#with-a-bundler
   resolve: {
     alias: {
-      //vue: 'vue/dist/vue.esm-bundler.js'
-    }
-  }
-})
-
+      // vue: 'vue/dist/vue.esm-bundler.js'
+    },
+  },
+});

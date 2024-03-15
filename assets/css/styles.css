@@ -21,3 +21,8 @@
 body.admin-bar {
     max-height: calc(100vh - 32px);
 }
+
+body {
+    border: 10px solid red;
+    padding: 200px;
+}
