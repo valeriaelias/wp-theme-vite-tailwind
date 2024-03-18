@@ -15,7 +15,8 @@ import { defineConfig } from 'vite';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import liveReload from 'vite-plugin-live-reload';
 
-const { resolve } = require('path');
+import path from 'node:path';
+// depreacted const { resolve } = require('path');
 // never used
 // const fs = require('fs');
 
@@ -35,7 +36,7 @@ export default defineConfig({
 
   build: {
     // output dir for production build
-    outDir: resolve(__dirname, './dist'),
+    outDir: path.resolve(__dirname, './dist'),
     emptyOutDir: true,
 
     // emit manifest so PHP can find the hashed files
@@ -47,7 +48,7 @@ export default defineConfig({
     // our entry
     rollupOptions: {
       input: {
-        main: resolve(`${__dirname}/main.js`),
+        main: path.resolve(`${__dirname}/main.js`),
       },
 
       /*
